@@ -11,7 +11,7 @@ export const housesSlice = createSlice({
     name: "houses",
     initialState,
     reducers: {
-        pointsForHouse: (state, action: any) => {
+        pointsForHouse: (state, action) => {
             const house: string = action.payload.house;
             const score: number = action.payload.score;
 

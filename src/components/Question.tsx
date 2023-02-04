@@ -2,7 +2,7 @@ import React from "react";
 import Title from "./Title";
 import Answers from "./Answers";
 
-const Question = ({ question }: any) => {
+const Question = ({ question }) => {
     return (
         <div>
             <Title title={question.title} />

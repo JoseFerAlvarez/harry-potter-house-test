@@ -3,8 +3,9 @@ import data from "../db/questions.json";
 import Question from "../components/Question";
 import { useAppSelector } from "../app/hooks";
 import { getTheWinner } from "../helpers/winner";
+import { IntQuestion } from "../Interfaces/Question";
 
-const Test = () => {
+const Test = (): JSX.Element => {
 
     const { g, r, h, s } = useAppSelector((state) => state.houses);
     const { count } = useAppSelector((state) => state.counter);
@@ -21,7 +22,7 @@ const Test = () => {
 
     return (
         <div>
-            {questions.map((question, index) => (
+            {questions.map((question: IntQuestion, index: number) => (
                 <Question key={index} question={question} />
             ))}
             {winner ? <p>{winner.name}</p> : <></>}
