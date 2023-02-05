@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import housesReducer from '../features/housesSlice';
 import counterReducer from "../features/counterSlice";
+import answersReducer from "../features/answersSlice";
 
 export const store = configureStore({
   reducer: {
     houses: housesReducer,
-    counter: counterReducer
+    counter: counterReducer,
+    answers: answersReducer
   },
 });
 

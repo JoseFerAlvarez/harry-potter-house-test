@@ -2,26 +2,24 @@ import React, { useState } from "react";
 import { useAppDispatch } from "../app/hooks";
 import { pointsForHouse } from "../features/housesSlice";
 import { nextQuestion } from "../features/counterSlice";
-import styled from "styled-components";
-import { IntScore, IntAnswer } from "../Interfaces/Question";
-
-const AnswersList = styled.div`
-    display: ${props => props.display ? "inline-block" : "none" || "inline-block"};
-`;
+import { IntAnswer } from "../Interfaces/Question";
+import { AnswersList } from "../styles/StylesAnswers";
+import { addAnswer } from "../features/answersSlice";
 
 const Answers = ({ answers }: { answers: IntAnswer[] }): JSX.Element => {
     const [display, setDisplay] = useState<number>(1);
     const dispatch = useAppDispatch();
 
-    const setPoints = (scores: IntScore): void => {
-        for (const house in scores) {
+    const setPoints = (answer: IntAnswer): void => {
+        for (const house in answer.scores) {
             const result: any = {
                 house: house,
-                score: scores[house]
+                score: answer.scores[house]
             }
             dispatch(pointsForHouse(result));
         }
 
+        dispatch(addAnswer(answer.title))
         setDisplay(0);
         dispatch(nextQuestion());
     }
@@ -29,7 +27,7 @@ const Answers = ({ answers }: { answers: IntAnswer[] }): JSX.Element => {
     return (
         <AnswersList display={display}>
             {answers.map((answer: IntAnswer, index: number) => (
-                <button key={index} onClick={() => setPoints(answer.scores)}>{answer.title}</button>
+                <button key={index} onClick={() => setPoints(answer)}>{answer.title}</button>
             ))}
         </AnswersList>
     );

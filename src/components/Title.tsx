@@ -1,8 +1,11 @@
 import React from "react";
+import { HatBubble } from "../styles/Text";
 
 const Title = ({ title }: { title: string }) => {
     return (
-        <p>{title}</p>
+        <HatBubble>
+            <p>{title}</p>
+        </HatBubble>
     );
 }
 
