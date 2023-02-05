@@ -1,37 +1,9 @@
+/**React */
 import React from 'react';
-import styled from "styled-components";
+/**Styles */
+import { WinnerContainer, Image } from '../styles/StylesWinner';
 
-const WinnerContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-family: var(--font-open);
-
-    p{
-        font-size: 30px;
-        font-weight: 600;
-    }
-
-    p:last-child{
-        font-size: 20px;
-        font-weight: 400;
-    }
-`;
-
-const Image = styled.div`
-    border-radius: 20px;
-    img{
-        max-height: 600px;
-        border-radius: 20px;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-`;
-
-const Winner = ({ winner }) => {
+const Winner = ({ winner }: { winner: string }) => {
     return (
         <WinnerContainer>
             <Image>

@@ -1,22 +1,32 @@
+/**React */
 import React, { useEffect, useState } from "react";
-import data from "../db/questions.json";
-import Question from "../components/Question";
+/**Redux */
 import { useAppSelector } from "../app/hooks";
-import { getTheWinner } from "../helpers/winner";
+/**Typescript */
 import { IntQuestion } from "../Interfaces/Question";
+/**Components */
+import Question from "../components/Question";
+import Winner from "../components/Winner";
+/**Styles */
 import { TestContainer, UserContainer } from "../styles/StylesTest";
 import { UserBubble } from "../styles/Text";
+/**Data */
+import data from "../db/questions.json";
+/**Helpers */
+import { getTheWinner } from "../helpers/winner";
 import { animateScroll as scroll } from "react-scroll";
-import Winner from "../components/Winner";
+import { IntHouse } from "../Interfaces/House";
+
 
 const Test = (): JSX.Element => {
-
+    /**States */
     const { g, r, h, s } = useAppSelector((state) => state.houses);
     const { count } = useAppSelector((state) => state.counter);
     const { answers } = useAppSelector((state) => state.answers);
     const [questions, setQuestions] = useState([]);
-    const [winner, setWinner] = useState(null);
+    const [winner, setWinner] = useState<IntHouse>(null);
 
+    /**Render the next question when counter increments */
     useEffect(() => {
         if (count < data.length) {
             setQuestions([...questions, data[count]]);
@@ -25,6 +35,7 @@ const Test = (): JSX.Element => {
         }
     }, [count])
 
+    /**When a new question is added, scroll to bottom */
     useEffect(() => {
         scroll.scrollToBottom();
     }, [questions])

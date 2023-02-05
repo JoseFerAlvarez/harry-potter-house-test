@@ -1,4 +1,6 @@
+/**React */
 import React from "react";
+/**Styles */
 import { HatBubble } from "../styles/Text";
 
 const Title = ({ title }: { title: string }) => {

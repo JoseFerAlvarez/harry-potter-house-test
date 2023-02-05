@@ -1,18 +1,23 @@
+/**React */
 import React, { useState } from "react";
+/**Redux */
 import { useAppDispatch } from "../app/hooks";
 import { pointsForHouse } from "../features/housesSlice";
 import { nextQuestion } from "../features/counterSlice";
-import { IntAnswer } from "../Interfaces/Question";
-import { AnswersList } from "../styles/StylesAnswers";
 import { addAnswer } from "../features/answersSlice";
+/**Typescript */
+import { IntAnswer } from "../Interfaces/Question";
+/**Styles */
+import { AnswersList } from "../styles/StylesAnswers";
+
 
 const Answers = ({ answers }: { answers: IntAnswer[] }): JSX.Element => {
     const [display, setDisplay] = useState<number>(1);
     const dispatch = useAppDispatch();
 
-    const setPoints = (answer: IntAnswer): void => {
+    const answerQuestion = (answer: IntAnswer): void => {
         for (const house in answer.scores) {
-            const result: any = {
+            const result = {
                 house: house,
                 score: answer.scores[house]
             }
@@ -27,7 +32,7 @@ const Answers = ({ answers }: { answers: IntAnswer[] }): JSX.Element => {
     return (
         <AnswersList display={display}>
             {answers.map((answer: IntAnswer, index: number) => (
-                <button key={index} onClick={() => setPoints(answer)}>{answer.title}</button>
+                <button key={index} onClick={() => answerQuestion(answer)}>{answer.title}</button>
             ))}
         </AnswersList>
     );

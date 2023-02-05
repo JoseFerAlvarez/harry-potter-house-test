@@ -1,4 +1,6 @@
+/**React */
 import React from "react";
+/**Components */
 import Title from "./Title";
 import Answers from "./Answers";
 
