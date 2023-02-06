@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.41fac862.css",
+    "main.js": "/static/js/main.d16039af.js",
+    "static/media/hogwartscard.jpg": "/static/media/hogwartscard.0a4d7892a4c75d100860.jpg",
+    "index.html": "/index.html",
+    "main.41fac862.css.map": "/static/css/main.41fac862.css.map",
+    "main.d16039af.js.map": "/static/js/main.d16039af.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.41fac862.css",
+    "static/js/main.d16039af.js"
+  ]
+}
