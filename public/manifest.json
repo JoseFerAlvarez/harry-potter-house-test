@@ -1,0 +1,8 @@
+{
+  "short_name": "Harry Potter",
+  "name": "Harry Potter | House Test",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
