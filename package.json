@@ -2,6 +2,7 @@
   "name": "harry-potter-house-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://joseferalvarez.github.io/harry-potter-house-test/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
