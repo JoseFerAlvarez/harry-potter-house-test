@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAppSelector } from "../app/hooks";
 /**Typescript */
 import { IntQuestion } from "../Interfaces/Question";
+import { IntHouse } from "../Interfaces/House";
 /**Components */
 import Question from "../components/Question";
 import Winner from "../components/Winner";
@@ -15,7 +16,6 @@ import data from "../db/questions.json";
 /**Helpers */
 import { getTheWinner } from "../helpers/winner";
 import { animateScroll as scroll } from "react-scroll";
-import { IntHouse } from "../Interfaces/House";
 
 
 const Test = (): JSX.Element => {
@@ -23,6 +23,7 @@ const Test = (): JSX.Element => {
     const { g, r, h, s } = useAppSelector((state) => state.houses);
     const { count } = useAppSelector((state) => state.counter);
     const { answers } = useAppSelector((state) => state.answers);
+    const { user } = useAppSelector((state) => state.user);
     const [questions, setQuestions] = useState([]);
     const [winner, setWinner] = useState<IntHouse>(null);
 
@@ -49,7 +50,10 @@ const Test = (): JSX.Element => {
                     <div key={index}>
                         <Question question={question} />
                         <UserContainer>
-                            {answers[index] ? <UserBubble>{answers[index]}</UserBubble> : <></>}
+                            {answers[index] ? <UserBubble>
+                                <p>{`${user.name} ${user.blood === "Mudblood" ? "(The Mudblood)" : ""}`}</p>
+                                <p>{answers[index]}</p>
+                            </UserBubble> : <></>}
                         </UserContainer>
                     </div>
                 ))}</>}

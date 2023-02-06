@@ -12,7 +12,7 @@ const AnswersList = styled.div`
         border: 1px solid var(--color-light);
         border-radius: 8px;
         padding: 10px 20px;
-        font-family: var(--font-open);
+        font-family: var(--font-roboto);
         font-size: 16px;
         transition: all 200ms;
 

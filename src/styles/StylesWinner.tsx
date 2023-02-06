@@ -6,7 +6,8 @@ const WinnerContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    font-family: var(--font-open);
+    font-family: var(--font-roboto);
+    margin-top: 50px;
 
     p{
         font-size: 30px;

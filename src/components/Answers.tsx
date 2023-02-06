@@ -12,9 +12,11 @@ import { AnswersList } from "../styles/StylesAnswers";
 
 
 const Answers = ({ answers }: { answers: IntAnswer[] }): JSX.Element => {
+    /**States */
     const [display, setDisplay] = useState<number>(1);
     const dispatch = useAppDispatch();
 
+    /**Give points to the different houses and go to the next question*/
     const answerQuestion = (answer: IntAnswer): void => {
         for (const house in answer.scores) {
             const result = {
@@ -23,7 +25,6 @@ const Answers = ({ answers }: { answers: IntAnswer[] }): JSX.Element => {
             }
             dispatch(pointsForHouse(result));
         }
-
         dispatch(addAnswer(answer.title))
         setDisplay(0);
         dispatch(nextQuestion());
